@@ -6,7 +6,15 @@
     <bean id="patient" class="com.babor.spring.Patient">
         <constructor-arg name="name" value="Babor"></constructor-arg>
         <constructor-arg name="id" value="5"></constructor-arg>
-        <property name="nationalId" value="1234"></property>
+        <property name="nationalId">
+            <value>3214</value>
+        </property>
+        <property name="address" ref="address"></property>
+    </bean>
+
+    <bean id="address" class="com.babor.spring.Address">
+        <constructor-arg name="street" value="sskroad"></constructor-arg>
+        <constructor-arg name="postCode" value="3900"></constructor-arg>
     </bean>
 
 </beans>

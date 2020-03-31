@@ -4,6 +4,7 @@ public class Patient {
     private int id;
     private String name;
     private int nationalId;
+    private Address address;
 
     public Patient() {
     }
@@ -37,6 +38,14 @@ public class Patient {
         this.nationalId = nationalId;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     public void speak() {
         System.out.println("hello patient");
     }
@@ -47,6 +56,7 @@ public class Patient {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", nationalId=" + nationalId +
+                ", address=" + address +
                 '}';
     }
 }
