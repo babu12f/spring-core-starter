@@ -13,8 +13,10 @@ public class App
         ApplicationContext context = new FileSystemXmlApplicationContext("beans.xml");
 
         Patient patient = (Patient) context.getBean("patient");
+        Address address = (Address) context.getBean("address2");
 
         System.out.println(patient);
+        System.out.println(address);
 
         ((FileSystemXmlApplicationContext)context).close();
     }

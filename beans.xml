@@ -1,30 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-init-method="init" default-destroy-method="destroy">
 
     <bean id="patient" class="com.babor.spring.Patient" scope="singleton" init-method="onCreate"
           destroy-method="onDestroy"
-          factory-method="getInstance">
-        <constructor-arg name="name" value="Babor"></constructor-arg>
-        <constructor-arg name="id" value="5"></constructor-arg>
+          factory-method="getInstance" p:address-ref="address"
+          c:id="5"
+          c:name="babor"
+    >
         <property name="nationalId">
             <value>3214</value>
         </property>
-        <property name="address" ref="address"></property>
-    </bean>
-
-    <bean id="patient2" class="com.babor.spring.Patient" scope="singleton" init-method="onCreate"
-          destroy-method="onDestroy"
-          factory-bean="patientfactory"
-          factory-method="createPatient">
-        <constructor-arg name="name" value="Radis"></constructor-arg>
-        <constructor-arg name="id" value="200"></constructor-arg>
-        <property name="nationalId">
-            <value>3214</value>
-        </property>
-        <property name="address" ref="address"></property>
     </bean>
 
     <bean id="address" class="com.babor.spring.Address">
@@ -32,6 +22,7 @@
         <constructor-arg name="postCode" value="3900"></constructor-arg>
     </bean>
 
-    <bean id="patientfactory" class="com.babor.spring.PatientFactory"></bean>
+    <bean id="address2" class="com.babor.spring.Address" p:street="feni" p:postCode="1200">
+    </bean>
 
 </beans>
