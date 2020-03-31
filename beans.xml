@@ -4,7 +4,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="patient" class="com.babor.spring.Patient">
-
+        <constructor-arg name="name" value="Babor"></constructor-arg>
+        <constructor-arg name="id" value="5"></constructor-arg>
+        <property name="nationalId" value="1234"></property>
     </bean>
 
 </beans>
