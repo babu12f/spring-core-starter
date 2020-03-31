@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-init-method="init" default-destroy-method="destroy">
 
-    <bean id="patient" class="com.babor.spring.Patient">
+    <bean id="patient" class="com.babor.spring.Patient" scope="singleton" init-method="onCreate"
+          destroy-method="onDestroy">
         <constructor-arg name="name" value="Babor"></constructor-arg>
         <constructor-arg name="id" value="5"></constructor-arg>
         <property name="nationalId">

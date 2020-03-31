@@ -50,6 +50,14 @@ public class Patient {
         System.out.println("hello patient");
     }
 
+    public void onCreate() {
+        System.out.println("patient Created " + this);
+    }
+
+    public void onDestroy() {
+        System.out.println("patient Destroyed ");
+    }
+
     @Override
     public String toString() {
         return "Patient{" +

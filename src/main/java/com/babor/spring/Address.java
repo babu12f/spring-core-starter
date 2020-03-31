@@ -28,6 +28,14 @@ public class Address {
         this.postCode = postCode;
     }
 
+    public void init() {
+        System.out.println("Address Created " + this);
+    }
+
+    public void destroy() {
+        System.out.println("Address Destroyed");
+    }
+
     @Override
     public String toString() {
         return "Address{" +
