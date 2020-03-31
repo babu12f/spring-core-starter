@@ -12,12 +12,9 @@ public class App
     public static void main( String[] args ) {
         ApplicationContext context = new FileSystemXmlApplicationContext("beans.xml");
 
-        Patient patient1 = (Patient) context.getBean("patient");
-        Patient patient2 = (Patient) context.getBean("patient");
+        Patient patient = (Patient) context.getBean("patient");
 
-        patient1.setName("nadim");
-
-        System.out.println(patient2);
+        System.out.println(patient);
 
         ((FileSystemXmlApplicationContext)context).close();
     }
