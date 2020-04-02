@@ -1,5 +1,7 @@
 package com.babor.spring;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
 public class Logger {
@@ -22,5 +24,15 @@ public class Logger {
 
     public void writeFile(String text) {
         fileWriter.write(text);
+    }
+
+    @PostConstruct
+    public void init() {
+        System.out.println("Logger Created : ");
+    }
+
+    @PreDestroy
+    public void destroy() {
+        System.out.println("Logger Destroyed :");
     }
 }
