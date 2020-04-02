@@ -15,7 +15,7 @@ public class Parrot {
     }
 
     @Autowired
-    public void setSpeech(@Value("#{randomSpeech.getText()}") String speech) {
+    public void setSpeech(@Value("#{T(Math).sin(T(Math).PI/4) ^ 2 lt 0.7 ? 'yes' : 'no'}") String speech) {
         this.speech = speech;
     }
 
