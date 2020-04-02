@@ -1,32 +1,17 @@
 package com.babor.spring;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import javax.annotation.Resource;
 
 public class Logger {
-
-    //    @Autowired
     private ConsoleWriter consoleWriter;
-
-    //    @Autowired
     private LogWriter fileWriter;
 
-    public LogWriter getConsoleWriter() {
-        return consoleWriter;
-    }
-
-    @Autowired
-    @Qualifier("consolewriter")
+    @Resource
     public void setConsoleWriter(ConsoleWriter consoleWriter) {
         this.consoleWriter = consoleWriter;
     }
 
-    public LogWriter getFileWriter() {
-        return fileWriter;
-    }
-
-    @Autowired
-    @Qualifier("filewriter")
+    @Resource(name = "demoFileWriter")
     public void setFileWriter(LogWriter fileWriter) {
         this.fileWriter = fileWriter;
     }

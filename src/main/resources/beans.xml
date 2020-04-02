@@ -7,10 +7,6 @@
 >
 
     <bean id="consoleWriter2" class="com.babor.spring.ConsoleWriter">
-        <qualifier value="consolewriter"/>
-    </bean>
-
-    <bean id="whatever" class="com.babor.spring.ConsoleWriter">
     </bean>
 
     <bean id="demoFileWriter" class="com.babor.spring.FileWriter">
