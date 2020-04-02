@@ -13,13 +13,9 @@ public class App
     public static void main( String[] args ) {
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
-        Patient patient = (Patient) context.getBean("patient");
+        ContactBook contact = (ContactBook) context.getBean("contactbook");
 
-        System.out.println(patient);
-
-        for (EmergencyContact contact:patient.getEmergencyContacts()) {
-            System.out.println(contact);
-        }
+        System.out.println(contact);
 
         ((ClassPathXmlApplicationContext)context).close();
     }

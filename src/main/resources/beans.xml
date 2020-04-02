@@ -23,6 +23,17 @@
         </property>
     </bean>
 
+    <bean id="contactbook" class="com.babor.spring.ContactBook">
+        <property name="contacts">
+            <map>
+                <entry key="first" value-ref="contact1"></entry>
+                <entry key="second" value-ref="contact2"></entry>
+                <entry key="third" value-ref="contact3"></entry>
+                <entry key="forth" value-ref="contact4"></entry>
+            </map>
+        </property>
+    </bean>
+
     <bean id="contact1" class="com.babor.spring.EmergencyContact" p:name="nadmim" p:phoneNumber="1"></bean>
     <bean id="contact2" class="com.babor.spring.EmergencyContact" p:name="Radia" p:phoneNumber="2"></bean>
     <bean id="contact3" class="com.babor.spring.EmergencyContact" p:name="Nafisa" p:phoneNumber="3"></bean>
