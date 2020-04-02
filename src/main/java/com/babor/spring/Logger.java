@@ -2,18 +2,20 @@ package com.babor.spring;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.annotation.Resource;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 public class Logger {
     private ConsoleWriter consoleWriter;
     private LogWriter fileWriter;
 
-    @Resource
+    @Inject
+    @Named(value = "consoleWriter2")
     public void setConsoleWriter(ConsoleWriter consoleWriter) {
         this.consoleWriter = consoleWriter;
     }
 
-    @Resource(name = "demoFileWriter")
+    @Inject
     public void setFileWriter(LogWriter fileWriter) {
         this.fileWriter = fileWriter;
     }
