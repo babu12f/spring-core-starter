@@ -58,4 +58,11 @@ public class NoticesDAO {
 
         });
     }
+
+    public Boolean deleteNoticeById(int id) {
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("id", id);
+
+        return jdbc.update("delete from notices where id = :id", params) == 1;
+    }
 }
