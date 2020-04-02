@@ -5,6 +5,7 @@ import java.util.List;
 public class Patient {
     private int id;
     private String name;
+    private EmergencyContact criticalContact;
     private List<EmergencyContact> emergencyContacts;
 
     public Patient() {
@@ -31,6 +32,14 @@ public class Patient {
         this.name = name;
     }
 
+    public EmergencyContact getCriticalContact() {
+        return criticalContact;
+    }
+
+    public void setCriticalContact(EmergencyContact criticalContact) {
+        this.criticalContact = criticalContact;
+    }
+
     public List<EmergencyContact> getEmergencyContacts() {
         return emergencyContacts;
     }
@@ -48,6 +57,8 @@ public class Patient {
         return "Patient{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", criticalContact=" + criticalContact +
+                ", emergencyContacts=" + emergencyContacts +
                 '}';
     }
 }

@@ -17,6 +17,10 @@
                 <ref bean="contact4"/>
             </list>
         </property>
+
+        <property name="criticalContact">
+            <bean class="com.babor.spring.EmergencyContact" p:name="father" p:phoneNumber="017145"></bean>
+        </property>
     </bean>
 
     <bean id="contact1" class="com.babor.spring.EmergencyContact" p:name="nadmim" p:phoneNumber="1"></bean>
