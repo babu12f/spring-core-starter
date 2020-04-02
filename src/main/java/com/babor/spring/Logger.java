@@ -4,11 +4,16 @@ public class Logger {
     private LogWriter consoleWriter;
     private LogWriter fileWriter;
 
+    public Logger(ConsoleWriter consoleWriter, FileWriter fileWriter) {
+        this.consoleWriter = consoleWriter;
+        this.fileWriter = fileWriter;
+    }
+
     public LogWriter getConsoleWriter() {
         return consoleWriter;
     }
 
-    public void setConsoleWriter(ConsoleWriter consoleWriter) {
+    public void setConsoleWriter(LogWriter consoleWriter) {
         this.consoleWriter = consoleWriter;
     }
 
@@ -16,7 +21,7 @@ public class Logger {
         return fileWriter;
     }
 
-    public void setFileWriter(FileWriter fileWriter) {
+    public void setFileWriter(LogWriter fileWriter) {
         this.fileWriter = fileWriter;
     }
 

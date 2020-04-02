@@ -7,5 +7,5 @@
 
     <bean id="fileWriter" class="com.babor.spring.FileWriter"></bean>
 
-    <bean id="logger" class="com.babor.spring.Logger" autowire="byName"></bean>
+    <bean id="logger" class="com.babor.spring.Logger" autowire="constructor"></bean>
 </beans>
