@@ -1,10 +1,10 @@
 package com.babor.spring;
 
 public class Logger {
-    private ConsoleWriter consoleWriter;
-    private FileWriter fileWriter;
+    private LogWriter consoleWriter;
+    private LogWriter fileWriter;
 
-    public ConsoleWriter getConsoleWriter() {
+    public LogWriter getConsoleWriter() {
         return consoleWriter;
     }
 
@@ -12,7 +12,7 @@ public class Logger {
         this.consoleWriter = consoleWriter;
     }
 
-    public FileWriter getFileWriter() {
+    public LogWriter getFileWriter() {
         return fileWriter;
     }
 
