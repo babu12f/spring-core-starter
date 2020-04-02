@@ -2,14 +2,15 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
-       default-autowire="byType"
-       default-autowire-candidates="*Writer">
+       default-autowire="byType">
 
-    <bean id="consoleWriter" class="com.babor.spring.ConsoleWriter"></bean>
+    <bean id="consoleWriter" class="com.babor.spring.ConsoleWriter" primary="true"></bean>
+
+    <bean id="consoleWriter2" class="com.babor.spring.ConsoleWriter"></bean>
 
     <bean id="fileWriter" class="com.babor.spring.FileWriter"></bean>
 
-    <bean id="fileWriter2" class="com.babor.spring.FileWriter"></bean>
+    <bean id="fileWriter2" class="com.babor.spring.FileWriter" autowire-candidate="false"></bean>
 
     <bean id="logger" class="com.babor.spring.Logger"></bean>
 </beans>
