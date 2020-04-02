@@ -5,6 +5,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
+import java.util.List;
+
 /**
  * Hello world!
  *
@@ -14,9 +16,13 @@ public class App
     public static void main( String[] args ) {
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
-        Parrot parrot = (Parrot) context.getBean("parrot");
+        NoticesDAO noticesDao = (NoticesDAO) context.getBean("noticeDao");
 
-        parrot.speak();
+        List<Notice> notices = noticesDao.getNotices();
+
+        for (Notice notice:notices) {
+            System.out.println(notice);
+        }
 
         ((ClassPathXmlApplicationContext)context).close();
     }
