@@ -1,10 +1,11 @@
 package com.babor.spring;
 
+import java.util.List;
+
 public class Patient {
     private int id;
     private String name;
-    private int nationalId;
-    private Address address;
+    private List<String> emergencyContactNames;
 
     public Patient() {
     }
@@ -12,11 +13,6 @@ public class Patient {
     public Patient(int id, String name) {
         this.id = id;
         this.name = name;
-    }
-
-    public static Patient getInstance(int id, String name) {
-        System.out.println("creating patient using factory method");
-        return new Patient(id, name);
     }
 
     public int getId() {
@@ -35,20 +31,12 @@ public class Patient {
         this.name = name;
     }
 
-    public int getNationalId() {
-        return nationalId;
+    public List<String> getEmergencyContactNames() {
+        return emergencyContactNames;
     }
 
-    public void setNationalId(int nationalId) {
-        this.nationalId = nationalId;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setEmergencyContactNames(List<String> emergencyContactNames) {
+        this.emergencyContactNames = emergencyContactNames;
     }
 
     public void speak() {
@@ -68,8 +56,6 @@ public class Patient {
         return "Patient{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", nationalId=" + nationalId +
-                ", address=" + address +
                 '}';
     }
 }

@@ -6,23 +6,19 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-init-method="init" default-destroy-method="destroy">
 
-    <bean id="patient" class="com.babor.spring.Patient" scope="singleton" init-method="onCreate"
-          destroy-method="onDestroy"
-          factory-method="getInstance" p:address-ref="address"
+    <bean id="patient" class="com.babor.spring.Patient" scope="singleton" init-method="onCreate" destroy-method="onDestroy"
           c:id="5"
           c:name="babor"
     >
-        <property name="nationalId">
-            <value>3214</value>
+        <property name="emergencyContactNames">
+            <list>
+                <value>Nadim</value>
+                <value>Radia</value>
+                <value>Nafisa</value>
+                <value>Siddiqua</value>
+                <value>Siddiqua</value>
+            </list>
         </property>
-    </bean>
-
-    <bean id="address" class="com.babor.spring.Address">
-        <constructor-arg name="street" value="sskroad"></constructor-arg>
-        <constructor-arg name="postCode" value="3900"></constructor-arg>
-    </bean>
-
-    <bean id="address2" class="com.babor.spring.Address" p:street="feni" p:postCode="1200">
     </bean>
 
 </beans>

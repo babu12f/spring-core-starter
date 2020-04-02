@@ -14,10 +14,12 @@ public class App
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
         Patient patient = (Patient) context.getBean("patient");
-        Address address = (Address) context.getBean("address2");
 
         System.out.println(patient);
-        System.out.println(address);
+
+        for (String name:patient.getEmergencyContactNames()) {
+            System.out.println(name);
+        }
 
         ((FileSystemXmlApplicationContext)context).close();
     }
