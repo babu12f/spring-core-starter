@@ -13,9 +13,10 @@ public class App
     public static void main( String[] args ) {
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
-        ContactBook contact = (ContactBook) context.getBean("contactbook");
+        Logger logger = (Logger) context.getBean("logger");
 
-        System.out.println(contact);
+        logger.writeConsole("Hello Console Writer");
+        logger.writeFile("Hi File Writer");
 
         ((ClassPathXmlApplicationContext)context).close();
     }

@@ -1,44 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:p="http://www.springframework.org/schema/p"
-       xmlns:c="http://www.springframework.org/schema/c"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
-       default-init-method="init" default-destroy-method="destroy">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="patient" class="com.babor.spring.Patient"
-          c:id="5"
-          c:name="babor">
-        <property name="emergencyContacts">
-            <list>
-                <ref bean="contact1"></ref>
-                <ref bean="contact2"></ref>
-                <ref bean="contact3"></ref>
-                <ref bean="contact4"/>
-            </list>
-        </property>
+    <bean id="consoleWriter" class="com.babor.spring.ConsoleWriter"></bean>
 
-        <property name="criticalContact">
-            <bean class="com.babor.spring.EmergencyContact" p:name="father" p:phoneNumber="017145"></bean>
-        </property>
-    </bean>
+    <bean id="fileWriter" class="com.babor.spring.FileWriter"></bean>
 
-    <bean id="contactbook" class="com.babor.spring.ContactBook">
-        <property name="contacts">
-            <map>
-                <entry key="first" value-ref="contact1"></entry>
-                <entry key="second" value-ref="contact2"></entry>
-                <entry key="third" value-ref="contact3"></entry>
-                <entry key="forth" value-ref="contact4"></entry>
-            </map>
-        </property>
-
-        <property name="patient"><null/></property>
-    </bean>
-
-    <bean id="contact1" class="com.babor.spring.EmergencyContact" p:name="nadmim" p:phoneNumber="1"></bean>
-    <bean id="contact2" class="com.babor.spring.EmergencyContact" p:name="Radia" p:phoneNumber="2"></bean>
-    <bean id="contact3" class="com.babor.spring.EmergencyContact" p:name="Nafisa" p:phoneNumber="3"></bean>
-    <bean id="contact4" class="com.babor.spring.EmergencyContact" p:name="Siddiqua" p:phoneNumber="4"></bean>
-
+    <bean id="logger" class="com.babor.spring.Logger" autowire="byType"></bean>
 </beans>
