@@ -14,10 +14,9 @@ public class App
     public static void main( String[] args ) {
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
-        Logger logger = (Logger) context.getBean("logger");
+        Cat cat = (Cat) context.getBean("cat");
 
-        logger.writeConsole("Hello Console Writer");
-        logger.writeFile("Hi File Writer");
+        cat.speak();
 
         ((ClassPathXmlApplicationContext)context).close();
     }
