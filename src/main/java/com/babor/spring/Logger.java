@@ -1,28 +1,22 @@
 package com.babor.spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class Logger {
 
-//    @Autowired
+    //    @Autowired
     private ConsoleWriter consoleWriter;
 
-//    @Autowired
-    private FileWriter fileWriter;
-
-    public Logger() {
-    }
-
-    @Autowired(required = false)
-    public Logger(ConsoleWriter consoleWriter) {
-        this.consoleWriter = consoleWriter;
-    }
+    //    @Autowired
+    private LogWriter fileWriter;
 
     public LogWriter getConsoleWriter() {
         return consoleWriter;
     }
 
-//    @Autowired
+    @Autowired
+    @Qualifier("consolewriter")
     public void setConsoleWriter(ConsoleWriter consoleWriter) {
         this.consoleWriter = consoleWriter;
     }
@@ -32,13 +26,13 @@ public class Logger {
     }
 
     @Autowired
-    public void setFileWriter(FileWriter fileWriter) {
+    @Qualifier("filewriter")
+    public void setFileWriter(LogWriter fileWriter) {
         this.fileWriter = fileWriter;
     }
 
     public void writeConsole(String text) {
-        if (consoleWriter != null)
-            consoleWriter.write(text);
+        consoleWriter.write(text);
     }
 
     public void writeFile(String text) {
