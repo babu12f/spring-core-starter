@@ -14,9 +14,9 @@ public class App
     public static void main( String[] args ) {
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
-        Cat cat = (Cat) context.getBean("cat");
+        Parrot parrot = (Parrot) context.getBean("parrot");
 
-        cat.speak();
+        parrot.speak();
 
         ((ClassPathXmlApplicationContext)context).close();
     }
