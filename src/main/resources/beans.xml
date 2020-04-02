@@ -6,8 +6,8 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd"
 >
 
-    <bean id="consoleWriter" class="com.babor.spring.ConsoleWriter">
-    </bean>
+<!--    <bean id="consoleWriter" class="com.babor.spring.ConsoleWriter">-->
+<!--    </bean>-->
 
     <bean id="fileWriter" class="com.babor.spring.FileWriter">
     </bean>

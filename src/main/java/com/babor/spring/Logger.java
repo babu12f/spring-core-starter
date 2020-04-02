@@ -10,7 +10,10 @@ public class Logger {
 //    @Autowired
     private FileWriter fileWriter;
 
-    @Autowired
+    public Logger() {
+    }
+
+    @Autowired(required = false)
     public Logger(ConsoleWriter consoleWriter) {
         this.consoleWriter = consoleWriter;
     }
@@ -34,7 +37,8 @@ public class Logger {
     }
 
     public void writeConsole(String text) {
-        consoleWriter.write(text);
+        if (consoleWriter != null)
+            consoleWriter.write(text);
     }
 
     public void writeFile(String text) {
