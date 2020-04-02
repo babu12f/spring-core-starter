@@ -17,10 +17,10 @@ public class App
 
         System.out.println(patient);
 
-        for (String name:patient.getEmergencyContactNames()) {
-            System.out.println(name);
+        for (EmergencyContact contact:patient.getEmergencyContacts()) {
+            System.out.println(contact);
         }
 
-        ((FileSystemXmlApplicationContext)context).close();
+        ((ClassPathXmlApplicationContext)context).close();
     }
 }

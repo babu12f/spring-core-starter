@@ -6,19 +6,22 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-init-method="init" default-destroy-method="destroy">
 
-    <bean id="patient" class="com.babor.spring.Patient" scope="singleton" init-method="onCreate" destroy-method="onDestroy"
+    <bean id="patient" class="com.babor.spring.Patient"
           c:id="5"
-          c:name="babor"
-    >
-        <property name="emergencyContactNames">
+          c:name="babor">
+        <property name="emergencyContacts">
             <list>
-                <value>Nadim</value>
-                <value>Radia</value>
-                <value>Nafisa</value>
-                <value>Siddiqua</value>
-                <value>Siddiqua</value>
+                <ref bean="contact1"></ref>
+                <ref bean="contact2"></ref>
+                <ref bean="contact3"></ref>
+                <ref bean="contact4"/>
             </list>
         </property>
     </bean>
+
+    <bean id="contact1" class="com.babor.spring.EmergencyContact" p:name="nadmim" p:phoneNumber="1"></bean>
+    <bean id="contact2" class="com.babor.spring.EmergencyContact" p:name="Radia" p:phoneNumber="2"></bean>
+    <bean id="contact3" class="com.babor.spring.EmergencyContact" p:name="Nafisa" p:phoneNumber="3"></bean>
+    <bean id="contact4" class="com.babor.spring.EmergencyContact" p:name="Siddiqua" p:phoneNumber="4"></bean>
 
 </beans>

@@ -5,7 +5,7 @@ import java.util.List;
 public class Patient {
     private int id;
     private String name;
-    private List<String> emergencyContactNames;
+    private List<EmergencyContact> emergencyContacts;
 
     public Patient() {
     }
@@ -31,24 +31,16 @@ public class Patient {
         this.name = name;
     }
 
-    public List<String> getEmergencyContactNames() {
-        return emergencyContactNames;
+    public List<EmergencyContact> getEmergencyContacts() {
+        return emergencyContacts;
     }
 
-    public void setEmergencyContactNames(List<String> emergencyContactNames) {
-        this.emergencyContactNames = emergencyContactNames;
+    public void setEmergencyContacts(List<EmergencyContact> emergencyContacts) {
+        this.emergencyContacts = emergencyContacts;
     }
 
     public void speak() {
         System.out.println("hello patient");
-    }
-
-    public void onCreate() {
-        System.out.println("patient Created " + this);
-    }
-
-    public void onDestroy() {
-        System.out.println("patient Destroyed ");
     }
 
     @Override
