@@ -22,9 +22,9 @@ public class App
         NoticesDAO noticesDao = (NoticesDAO) context.getBean("noticeDao");
 
         try {
-            Notice notice1 = new Notice("max", "max@g.com", "nax notice");
-            Notice notice2 = new Notice("mim", "mim@m.com", "mim notice");
-            Notice notice3 = new Notice("tom", "tom@t.com", "notice of tom");
+            Notice notice1 = new Notice(4, "notice4", "max@g.com", "nax notice");
+            Notice notice2 = new Notice(2, "notice2", "mim@m.com", "mim notice");
+            Notice notice3 = new Notice(5, "notice5", "tom@t.com", "notice of tom");
 
             List<Notice> noticeList = new ArrayList<Notice>();
             noticeList.add(notice1);

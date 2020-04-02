@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.*;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
 import java.sql.ResultSet;
@@ -15,15 +16,19 @@ import java.util.List;
 public class NoticesDAO {
     private NamedParameterJdbcTemplate jdbc;
 
+    public NoticesDAO() {
+    }
+
     @Autowired
     public NoticesDAO(DataSource dataSource) {
         this.jdbc = new NamedParameterJdbcTemplate(dataSource);
     }
 
+    @Transactional
     public int[] createNotice(List<Notice> notices) {
         SqlParameterSource[] params = SqlParameterSourceUtils.createBatch(notices.toArray());
 
-        return jdbc.batchUpdate("insert into notices (name, email, text) values (:name, :email, :text)", params);
+        return jdbc.batchUpdate("insert into notices (id, name, email, text) values (:id, :name, :email, :text)", params);
     }
 
     public boolean createNotice(Notice notice) {
