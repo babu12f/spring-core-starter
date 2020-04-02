@@ -66,6 +66,12 @@ public class NoticesDAO {
         });
     }
 
+    public boolean updateNotice(Notice notice) {
+        BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(notice);
+
+        return jdbc.update("update notices set name = :name, email = :email, text = :text where id = :id", params) == 1;
+    }
+
     public Boolean deleteNoticeById(int id) {
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", id);

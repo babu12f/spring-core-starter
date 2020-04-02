@@ -23,8 +23,15 @@ public class App
         try {
             //noticesDao.deleteNoticeById(3);
 
-            Notice noticeForcreate = new Notice("jhon", "doe", "jhon doe notice3");
-            noticesDao.createNotice(noticeForcreate);
+//            Notice noticeForcreate = new Notice("jhon", "doe", "jhon doe notice3");
+//            noticesDao.createNotice(noticeForcreate);
+
+            Notice notice2 = noticesDao.getNoticeById(9);
+            notice2.setName("jane");
+            notice2.setEmail("daw");
+            notice2.setText("update text");
+
+            noticesDao.updateNotice(notice2);
 
             List<Notice> notices = noticesDao.getNotices();
 
