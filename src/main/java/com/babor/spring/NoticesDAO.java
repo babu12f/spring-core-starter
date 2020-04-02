@@ -3,9 +3,7 @@ package com.babor.spring;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.*;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
@@ -20,6 +18,12 @@ public class NoticesDAO {
     @Autowired
     public NoticesDAO(DataSource dataSource) {
         this.jdbc = new NamedParameterJdbcTemplate(dataSource);
+    }
+
+    public int[] createNotice(List<Notice> notices) {
+        SqlParameterSource[] params = SqlParameterSourceUtils.createBatch(notices.toArray());
+
+        return jdbc.batchUpdate("insert into notices (name, email, text) values (:name, :email, :text)", params);
     }
 
     public boolean createNotice(Notice notice) {

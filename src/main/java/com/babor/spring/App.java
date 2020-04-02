@@ -7,6 +7,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,26 +22,22 @@ public class App
         NoticesDAO noticesDao = (NoticesDAO) context.getBean("noticeDao");
 
         try {
-            //noticesDao.deleteNoticeById(3);
+            Notice notice1 = new Notice("max", "max@g.com", "nax notice");
+            Notice notice2 = new Notice("mim", "mim@m.com", "mim notice");
+            Notice notice3 = new Notice("tom", "tom@t.com", "notice of tom");
 
-//            Notice noticeForcreate = new Notice("jhon", "doe", "jhon doe notice3");
-//            noticesDao.createNotice(noticeForcreate);
+            List<Notice> noticeList = new ArrayList<Notice>();
+            noticeList.add(notice1);
+            noticeList.add(notice2);
+            noticeList.add(notice3);
 
-            Notice notice2 = noticesDao.getNoticeById(9);
-            notice2.setName("jane");
-            notice2.setEmail("daw");
-            notice2.setText("update text");
+            noticesDao.createNotice(noticeList);
 
-            noticesDao.updateNotice(notice2);
 
             List<Notice> notices = noticesDao.getNotices();
-
             for (Notice notice:notices) {
                 System.out.println(notice);
             }
-
-//            Notice notice = noticesDao.getNoticeById(6);
-//            System.out.println("notice with id 6 : " + notice);
         }catch (CannotGetJdbcConnectionException ex){
             System.out.println("Could not get Jdbc connection !!");
         } catch (DataAccessException ex) {
