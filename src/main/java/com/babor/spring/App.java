@@ -21,7 +21,10 @@ public class App
         NoticesDAO noticesDao = (NoticesDAO) context.getBean("noticeDao");
 
         try {
-            noticesDao.deleteNoticeById(3);
+            //noticesDao.deleteNoticeById(3);
+
+            Notice noticeForcreate = new Notice("jhon", "doe", "jhon doe notice3");
+            noticesDao.createNotice(noticeForcreate);
 
             List<Notice> notices = noticesDao.getNotices();
 
@@ -29,8 +32,8 @@ public class App
                 System.out.println(notice);
             }
 
-            Notice notice = noticesDao.getNoticeById(6);
-            System.out.println("notice with id 6 : " + notice);
+//            Notice notice = noticesDao.getNoticeById(6);
+//            System.out.println("notice with id 6 : " + notice);
         }catch (CannotGetJdbcConnectionException ex){
             System.out.println("Could not get Jdbc connection !!");
         } catch (DataAccessException ex) {
